@@ -1,4 +1,4 @@
-package com.example.inrecipe
+package com.example.inrecipe.data
 
 class RecipesMaster {
     fun getAvailableDishes(

@@ -1,4 +1,4 @@
-package com.example.inrecipe
+package com.example.inrecipe.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,6 +6,9 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.inrecipe.data.IngredientEnum
+import com.example.inrecipe.R
+import com.example.inrecipe.data.Data
 
 class CustomAdapter(private val dataSet: Array<IngredientEnum>) :
     RecyclerView.Adapter<CustomAdapter.ViewHolder>() {

@@ -1,13 +1,16 @@
-package com.example.inrecipe
+package com.example.inrecipe.ui.fragment
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.viewpager.widget.PagerTitleStrip
 import androidx.viewpager.widget.ViewPager
+import com.example.inrecipe.data.Data
+import com.example.inrecipe.adapter.DishPagerAdapter
+import com.example.inrecipe.R
+import com.example.inrecipe.data.RecipesMaster
+import com.example.inrecipe.ui.activity.MainActivity
 
 class MainFragment : Fragment() {
     override fun onCreateView(
@@ -16,6 +19,8 @@ class MainFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.main_fragment, container, false)
 
+//        (activity as MainActivity).supportActionBar?.title = "Доступные рецепты"
+
         val recipesMaster = RecipesMaster()
         val availableDishes = recipesMaster.getAvailableDishes(Data.dishes, Data.checked)
         Data.availableDishes = availableDishes
@@ -23,11 +28,11 @@ class MainFragment : Fragment() {
 //        val adapter = MyAdapter(supportFragmentManager)
 
         val viewPager = view.findViewById<ViewPager>(R.id.viewpager)
-        val striped = view.findViewById<PagerTitleStrip>(R.id.pager_title_strip)
+//        val striped = view.findViewById<PagerTitleStrip>(R.id.pager_title_strip)
         val dishPagerAdapter = DishPagerAdapter((activity as MainActivity).supportFragmentManager, requireContext(), availableDishes)
         viewPager.adapter = dishPagerAdapter
 //        viewPager.adapter = adapter
-        viewPager.currentItem = 1
+        viewPager.currentItem = 0
 
         return view
     }

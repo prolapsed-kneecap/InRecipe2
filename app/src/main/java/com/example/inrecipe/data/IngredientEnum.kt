@@ -1,4 +1,6 @@
-package com.example.inrecipe
+package com.example.inrecipe.data
+
+import com.example.inrecipe.R
 
 
 enum class IngredientEnum(val ingredientName: String, val image: Int) {

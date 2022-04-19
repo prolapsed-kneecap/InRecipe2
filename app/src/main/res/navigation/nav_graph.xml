@@ -7,15 +7,20 @@
 
     <fragment
         android:id="@+id/ingredientFragment"
-        android:name="com.example.inrecipe.IngredientFragment"
-        android:label="IngredientFragment" >
+        android:name="com.example.inrecipe.ui.fragment.IngredientFragment"
+        android:label="Выберите ингредиенты" >
         <action
             android:id="@+id/action_ingredientFragment_to_mainFragment"
             app:destination="@id/mainFragment" />
     </fragment>
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.example.inrecipe.MainFragment"
-        android:label="main_fragment"
+        android:name="com.example.inrecipe.ui.fragment.MainFragment"
+        android:label="Доступные рецепты"
         tools:layout="@layout/main_fragment" />
+    <fragment
+        android:id="@+id/favoritesFragment2"
+        android:name="com.example.inrecipe.ui.fragment.FavoritesFragment"
+        android:label="Избранное"
+        tools:layout="@layout/favorites_fragment" />
 </navigation>

@@ -1,4 +1,4 @@
-package com.example.inrecipe
+package com.example.inrecipe.data
 
 object Data {
     val dishes = mutableSetOf<Dish>(
@@ -51,4 +51,10 @@ object Data {
     )
 
     var availableDishes = listOf<Dish>()
+
+    val favorites = mutableListOf<Int>(
+        1,
+        3,
+        4
+    )
 }

@@ -4,59 +4,85 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AuthActivity"
     android:background="@drawable/gradient"
+    tools:context=".ui.activity.AuthActivity"
     tools:ignore="ExtraText">
 
     <ImageView
         android:layout_width="250dp"
         android:layout_height="250dp"
-        android:layout_above="@id/emailEditText"
+        android:layout_above="@id/emailLayout"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="-375dp"
+        android:layout_marginBottom="-300dp"
         android:src="@drawable/piece_of_cake" />
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/emailLayout"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="300dp"
+        app:boxCornerRadiusBottomStart="20dp"
+        app:boxCornerRadiusTopStart="20dp"
+        app:boxCornerRadiusTopEnd="20dp"
+        app:boxCornerRadiusBottomEnd="20dp"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
 
-    <EditText
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/emailEditText"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/mont_regular"
+            android:hint="Электронная почта" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/passwordLayout"
         android:layout_width="250dp"
+        android:layout_below="@id/emailLayout"
         android:layout_height="wrap_content"
-        android:id="@+id/emailEditText"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="400dp"
-        android:hint="Электронная почта"
-        android:fontFamily="@font/mont_regular"/>
-    <EditText
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/passwordEditText"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/emailEditText"
         android:layout_marginTop="20dp"
-        android:fontFamily="@font/mont_regular"
-        android:hint="Пароль" />
+        app:boxCornerRadiusBottomStart="20dp"
+        app:boxCornerRadiusTopStart="20dp"
+        app:boxCornerRadiusTopEnd="20dp"
+        app:boxCornerRadiusBottomEnd="20dp"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
 
-    <Button
-        android:layout_width="223dp"
-        android:layout_height="wrap_content"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/passwordEditText"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/mont_regular"
+            android:hint="Пароль"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/LoginBtn"
-        android:layout_below="@id/passwordEditText"
+        android:layout_width="225dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/passwordLayout"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
+        android:backgroundTint="@color/orange"
         android:fontFamily="@font/mont_bold"
-        android:text="Войти" />
+        android:text="Войти"
+        android:textAllCaps="false"
+        app:cornerRadius="10dp"/>
 
-    <Button
-        android:layout_width="223dp"
-        android:layout_height="wrap_content"
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/signInBtn"
+        android:layout_width="225dp"
+        android:layout_height="wrap_content"
         android:layout_below="@id/LoginBtn"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
-        android:textSize="12dp"
+        android:textAllCaps="false"
+        app:cornerRadius="10dp"
+        android:backgroundTint="#b2a4a4"
+        android:fontFamily="@font/mont_bold"
         android:text="Зарегистрироваться"
-        android:background="#75493939"
-        android:fontFamily="@font/mont_bold"/>
-
+        android:textSize="12dp" />
 
 
 </RelativeLayout>

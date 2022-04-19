@@ -1,10 +1,13 @@
-package com.example.inrecipe
+package com.example.inrecipe.adapter
 
 import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
+import com.example.inrecipe.data.Dish
+import com.example.inrecipe.R
+import com.example.inrecipe.ui.fragment.DishFragment
 
 
 class DishPagerAdapter internal constructor(
@@ -16,11 +19,11 @@ class DishPagerAdapter internal constructor(
     private lateinit var mDishNames: MutableList<String>
     private lateinit var mDishDescriptions: MutableList<String>
     private var mTopImageResourceIds = intArrayOf(
-        R.drawable.ic_launcher_foreground,
-        R.drawable.ic_launcher_background,
-        R.drawable.ic_launcher_foreground,
-        R.drawable.ic_launcher_background,
-        R.drawable.ic_launcher_background,
+        R.drawable.apple_pie,
+        R.drawable.apple_pie,
+        R.drawable.apple_pie,
+        R.drawable.apple_pie,
+        R.drawable.apple_pie,
     )
 
     override fun getItem(position: Int): Fragment {

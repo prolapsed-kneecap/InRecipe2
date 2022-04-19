@@ -1,17 +1,15 @@
-package com.example.inrecipe
+package com.example.inrecipe.ui.fragment
 
-import android.content.Intent
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import androidx.appcompat.app.AlertDialog
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.inrecipe.adapter.CustomAdapter
+import com.example.inrecipe.data.IngredientEnum
+import com.example.inrecipe.R
 
 class IngredientFragment : Fragment() {
 

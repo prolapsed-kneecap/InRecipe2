@@ -1,4 +1,4 @@
-package com.example.inrecipe
+package com.example.inrecipe.data
 
 data class Dish(
     val index : Int,

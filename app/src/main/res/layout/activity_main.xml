@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
+    tools:context=".ui.activity.MainActivity"
     android:background="@drawable/gradient">
 <!--
     <androidx.appcompat.widget.Toolbar
@@ -67,7 +67,7 @@
         android:id="@+id/bnv"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        app:menu="@menu/top_menu"
+        app:menu="@menu/bottom_menu"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>

@@ -1,14 +1,13 @@
-package com.example.inrecipe
+package com.example.inrecipe.ui.activity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-
+import com.example.inrecipe.R
 
 
 class MainActivity : AppCompatActivity() {
@@ -17,7 +16,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        supportActionBar?.hide()
+//        supportActionBar?.hide()
+        supportActionBar?.title = ""
+        supportActionBar?.setBackgroundDrawable(resources.getDrawable(R.color.orange))
 
         val bnv = findViewById<BottomNavigationView>(R.id.bnv)
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment)
@@ -26,6 +27,7 @@ class MainActivity : AppCompatActivity() {
             setOf(
                 R.id.ingredientFragment,
                 R.id.mainFragment,
+                R.id.favoritesFragment2
             )
         )
         setupActionBarWithNavController(navController, appBarConfiguration)

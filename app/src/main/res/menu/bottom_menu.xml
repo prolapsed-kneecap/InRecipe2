@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/ingredientFragment"
+        android:icon="@drawable/apple_icon"
+        android:title="Ингредиенты"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/mainFragment"
+        android:icon="@drawable/recipe_book_icon"
+        android:title="Рецепты"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/favoritesFragment2"
+        android:icon="@drawable/favorites"
+        android:title="Избранное"
+        app:showAsAction="always" />
+
+</menu>

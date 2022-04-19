@@ -1,17 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-
     <item
         android:id="@+id/ingredientFragment"
-        android:icon="@drawable/apple_icon"
-        android:title="Ваши ингредиенты"
-        app:showAsAction="always" />
-
-    <item
-        android:id="@+id/mainFragment"
-        android:icon="@drawable/recipe_book_icon"
-        android:title="Доступные рецепты"
-        app:showAsAction="always" />
-
+        android:icon="@drawable/logout"
+        android:title="Выйти из аккаунта"
+        app:showAsAction="never" />
 </menu>

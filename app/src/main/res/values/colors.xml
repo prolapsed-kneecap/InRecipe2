@@ -9,4 +9,14 @@
     <color name="white">#FFFFFFFF</color>
     <color name="white_p">#22FFFFFF</color>
     <color name="orange">#FF5712</color>
+    <color name="orange_1">#FFC473</color>
+    <color name="mtrl_textinput_default_box_stroke_color">#FF5712</color>
+    <color name="text_input_color">
+        <selector xmlns:android="http://schemas.android.com/apk/res/android">
+            <item android:color="?attr/colorPrimary" android:state_focused="true"/>
+            <item android:alpha="0.87" android:color="?attr/colorOnSurface" android:state_hovered="true"/>
+            <item android:alpha="0.12" android:color="?attr/colorOnSurface" android:state_enabled="false"/>
+            <item android:alpha="0.38" android:color="?attr/colorOnSurface"/>
+        </selector>
+    </color>
 </resources>
