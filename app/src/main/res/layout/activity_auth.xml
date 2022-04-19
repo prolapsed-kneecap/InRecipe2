@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AuthActivity"
+    android:background="@drawable/gradient"
+    tools:ignore="ExtraText">
+
+    <ImageView
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_above="@id/emailEditText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="-375dp"
+        android:src="@drawable/piece_of_cake" />
+
+
+    <EditText
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/emailEditText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="400dp"
+        android:hint="Электронная почта"
+        android:fontFamily="@font/mont_regular"/>
+    <EditText
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/passwordEditText"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/emailEditText"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/mont_regular"
+        android:hint="Пароль" />
+
+    <Button
+        android:layout_width="223dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/LoginBtn"
+        android:layout_below="@id/passwordEditText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/mont_bold"
+        android:text="Войти" />
+
+    <Button
+        android:layout_width="223dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/signInBtn"
+        android:layout_below="@id/LoginBtn"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:textSize="12dp"
+        android:text="Зарегистрироваться"
+        android:background="#75493939"
+        android:fontFamily="@font/mont_bold"/>
+
+
+
+</RelativeLayout>

@@ -3,6 +3,7 @@ package com.example.inrecipe
 object Data {
     val dishes = mutableSetOf<Dish>(
         Dish(
+            1,
             "Салат из яблок и мандаринов",
             setOf(
                 IngredientEnum.APPLE,
@@ -10,18 +11,21 @@ object Data {
             )
         ),
         Dish(
+            2,
             "Томатное нечто",
             setOf(
                 IngredientEnum.TOMATO,
             )
         ),
         Dish(
+            3,
             "Яичница",
             setOf(
                 IngredientEnum.EGGS
             )
         ),
         Dish(
+            4,
             "Яблочный пирог",
             setOf(
                 IngredientEnum.APPLE,
@@ -31,6 +35,7 @@ object Data {
             )
         ),
         Dish(
+            5,
             "ааа",
             setOf(
                 IngredientEnum.APPLE,
