@@ -3,15 +3,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/create_new"
-        android:icon="@drawable/ic_baseline_add_24"
-        android:title="Создать новый рецепт"
+        android:id="@+id/ingredientFragment"
+        android:icon="@drawable/apple_icon"
+        android:title="Ваши ингредиенты"
         app:showAsAction="always" />
 
     <item
-        android:id="@+id/saved"
-        android:icon="@drawable/ic_baseline_bookmark_24"
-        android:title="Избранное"
+        android:id="@+id/mainFragment"
+        android:icon="@drawable/recipe_book_icon"
+        android:title="Доступные рецепты"
         app:showAsAction="always" />
 
 </menu>

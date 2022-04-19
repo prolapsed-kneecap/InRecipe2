@@ -22,13 +22,13 @@ class IngredientFragment : Fragment() {
         val view = inflater.inflate(R.layout.ingredient_fragment, container, false)
 
         val recylerView = view.findViewById<RecyclerView>(R.id.recyclerView)
-        val button: Button = view.findViewById(R.id.button)
+//        val button: Button = view.findViewById(R.id.button)
 
         recylerView.adapter = CustomAdapter(IngredientEnum.values())
         val layoutManager = GridLayoutManager(requireContext(), 2)
         recylerView.layoutManager = layoutManager
 
-        button.setOnClickListener {
+        /*button.setOnClickListener {
             if (Data.checked.isNotEmpty()) {
                 findNavController().navigate(R.id.action_ingredientFragment_to_mainFragment)
             } else {
@@ -40,7 +40,7 @@ class IngredientFragment : Fragment() {
                 builder.create()
                 builder.show()
             }
-        }
+        }*/
 
         return view
     }

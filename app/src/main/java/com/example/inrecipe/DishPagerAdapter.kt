@@ -19,7 +19,8 @@ class DishPagerAdapter internal constructor(
         R.drawable.ic_launcher_foreground,
         R.drawable.ic_launcher_background,
         R.drawable.ic_launcher_foreground,
-        R.drawable.ic_launcher_background
+        R.drawable.ic_launcher_background,
+        R.drawable.ic_launcher_background,
     )
 
     override fun getItem(position: Int): Fragment {
@@ -50,7 +51,7 @@ class DishPagerAdapter internal constructor(
         mDishDescriptions = mutableListOf()
         dishes.forEach {
             mDishNames.add(it.name)
-            var ingredientString = ""
+            var ingredientString = "Ингредиенты: "
             it.ingredients.forEach {
                 ingredientString += "${it.ingredientName} "
             }

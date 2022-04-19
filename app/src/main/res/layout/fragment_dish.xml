@@ -1,4 +1,5 @@
 <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/LinearLayout1"
     android:layout_width="match_parent"
@@ -6,50 +7,72 @@
     tools:background="@drawable/gradient"
     tools:context=".DishFragment">
 
-    <LinearLayout
-        android:layout_marginTop="50dp"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center_horizontal"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
-        <ImageView
-            android:id="@+id/topImage"
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@mipmap/ic_launcher" />
+            android:layout_gravity="end"
+            android:layout_margin="10dp"
+            android:foregroundGravity="bottom"
+            android:src="@drawable/ic_baseline_bookmark_24"
+            android:backgroundTint="@color/orange"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 
-        <TextView
-            android:id="@+id/catTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/mont_bold"
+        <LinearLayout
+            android:id="@+id/LinearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="50dp"
             android:gravity="center_horizontal"
-            tools:text="Имя Блюда"
-            android:textSize="35sp"
-            android:textColor="@color/white" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/catDescription"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/mont_regular"
-            android:gravity="center_horizontal"
-            tools:text="Индгредиенты"
-            android:textSize="25sp"
-            android:textColor="@color/white" />
+            <ImageView
+                android:id="@+id/topImage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/ic_launcher" />
 
-        <TextView
-            android:id="@+id/recipeTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/mont_regular"
-            android:gravity="center_horizontal"
-            android:text="@string/recipe"
-            android:textSize="20sp"
-            android:textColor="@color/white" />
+            <TextView
+                android:id="@+id/catTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/mont_bold"
+                android:gravity="center_horizontal"
+                android:textColor="@color/white"
+                android:textSize="35sp"
+                tools:text="Имя Блюда" />
 
-    </LinearLayout>
+            <TextView
+                android:id="@+id/catDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/mont_regular"
+                android:gravity="center_horizontal"
+                android:textColor="@color/white"
+                android:textSize="25sp"
+                tools:text="Индгредиенты" />
 
+            <TextView
+                android:id="@+id/recipeTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/mont_regular"
+                android:gravity="center_horizontal"
+                android:text="@string/recipe"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.core.widget.NestedScrollView>

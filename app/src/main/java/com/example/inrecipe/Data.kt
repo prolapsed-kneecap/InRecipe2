@@ -30,6 +30,17 @@ object Data {
                 IngredientEnum.EGGS
             )
         ),
+        Dish(
+            "ааа",
+            setOf(
+                IngredientEnum.APPLE,
+                IngredientEnum.FLOUR,
+                IngredientEnum.MILK,
+                IngredientEnum.EGGS,
+                IngredientEnum.TANGERINE,
+                IngredientEnum.TOMATO
+            )
+        )
     )
     val checked = mutableSetOf<IngredientEnum>(
     )
