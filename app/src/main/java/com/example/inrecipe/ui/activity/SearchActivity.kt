@@ -26,7 +26,7 @@ class SearchActivity : AppCompatActivity() {
         if (filteredlist.isEmpty()) {
             Toast.makeText(this, "No Data Found..", Toast.LENGTH_SHORT).show()
         } else {
-            adapter.filterList(filteredlist)
+//            adapter.filterList(filteredlist)
         }
     }
 
@@ -49,7 +49,6 @@ class SearchActivity : AppCompatActivity() {
             }
         })
 
-        val rv = findViewById<>()
 
     }
 }
