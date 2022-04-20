@@ -3,8 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/2007e/AndroidStudioProjects/InRecipe/app/src/main/res/drawable/back.xml" value="0.290625" />
         <entry key="..\:/Users/2007e/AndroidStudioProjects/InRecipe/app/src/main/res/drawable/gradient.xml" value="0.290625" />
-        <entry key="..\:/Users/2007e/AndroidStudioProjects/InRecipe/app/src/main/res/layout/activity_auth.xml" value="0.1" />
+        <entry key="..\:/Users/2007e/AndroidStudioProjects/InRecipe/app/src/main/res/layout/activity_auth.xml" value="0.176" />
         <entry key="..\:/Users/2007e/AndroidStudioProjects/InRecipe/app/src/main/res/layout/activity_ingridient.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/2007e/AndroidStudioProjects/InRecipe/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/Users/2007e/AndroidStudioProjects/InRecipe/app/src/main/res/layout/activity_search.xml" value="0.1296875" />

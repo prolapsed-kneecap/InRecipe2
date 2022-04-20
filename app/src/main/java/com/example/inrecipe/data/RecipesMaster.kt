@@ -2,7 +2,7 @@ package com.example.inrecipe.data
 
 class RecipesMaster {
     fun getAvailableDishes(
-        allDishes: Set<Dish>,
+        allDishes: List<Dish>,
         userIngredients: Set<IngredientEnum>
     ): MutableList<Dish> {
         return allDishes.filter {

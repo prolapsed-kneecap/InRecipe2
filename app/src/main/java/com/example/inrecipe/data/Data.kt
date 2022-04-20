@@ -5,7 +5,7 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
 object Data {
-    val dishes = mutableSetOf<Dish>(
+    val dishes = mutableListOf<Dish>(
         Dish(
             1,
             "Салат из яблок и мандаринов",

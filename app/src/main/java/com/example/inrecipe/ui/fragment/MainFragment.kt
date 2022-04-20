@@ -40,7 +40,6 @@ class MainFragment : Fragment() {
         } else {
             favouriteFab.visibility = View.VISIBLE
         }
-
 //        val adapter = MyAdapter(supportFragmentManager)
 
         val viewPager = view.findViewById<ViewPager>(R.id.viewpager)
@@ -52,7 +51,6 @@ class MainFragment : Fragment() {
         )
         viewPager.adapter = dishPagerAdapter
 //        viewPager.adapter = adapter
-        viewPager.currentItem = 0
 
         favouriteFab.setOnClickListener {
             val mAuth = FirebaseAuth.getInstance()

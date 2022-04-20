@@ -7,16 +7,20 @@ import com.example.inrecipe.R
 import androidx.recyclerview.widget.LinearLayoutManager
 
 import android.widget.Toast
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.inrecipe.adapter.SearchAdapter
 import com.example.inrecipe.data.Data
 import com.example.inrecipe.data.Dish
 
 
 class SearchActivity : AppCompatActivity() {
 
-    lateinit var dishList: MutableSet<Dish>
+    lateinit var dishList: MutableList<Dish>
+    lateinit var adapter: SearchAdapter
 
     private fun filter(text: String) {
-        val filteredlist: MutableSet<Dish> = mutableSetOf()
+        val filteredlist: MutableList<Dish> = mutableListOf()
 
         for (item in dishList) {
             if (item.name.lowercase().contains(text.lowercase())) {
@@ -24,7 +28,8 @@ class SearchActivity : AppCompatActivity() {
             }
         }
         if (filteredlist.isEmpty()) {
-            Toast.makeText(this, "No Data Found..", Toast.LENGTH_SHORT).show()
+            adapter.filterList(filteredlist)
+//            Toast.makeText(this, "No Data Found..", Toast.LENGTH_SHORT).show()
         } else {
             adapter.filterList(filteredlist)
         }
@@ -35,6 +40,10 @@ class SearchActivity : AppCompatActivity() {
         setContentView(R.layout.activity_search)
 
         dishList = Data.dishes
+        supportActionBar?.hide()
+//        supportActionBar?.setBackgroundDrawable(resources.getDrawable(R.color.orange))
+
+        adapter = SearchAdapter(Data.dishes, this)
 
         val searchView = findViewById<SearchView>(R.id.searchView)
 
@@ -49,7 +58,10 @@ class SearchActivity : AppCompatActivity() {
             }
         })
 
-        val rv = findViewById<>()
+        val rv = findViewById<RecyclerView>(R.id.searchRv)
+
+        rv.adapter = adapter
+        rv.layoutManager = GridLayoutManager(this, 2)
 
     }
 }
