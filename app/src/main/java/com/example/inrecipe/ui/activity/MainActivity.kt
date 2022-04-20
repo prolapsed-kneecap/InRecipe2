@@ -58,7 +58,32 @@ class MainActivity : AppCompatActivity() {
                     Data.favorites = (document.get("favorites") as List<Int>).toMutableList()
                 }
 
-        /* val recipesMaster = RecipesMaster()
+
+//        Data.dishes.forEach { it ->
+//            Data.database.collection("dishes").document(it.index.toString()).get()
+//                .addOnSuccessListener { document ->
+//                    it.rating = document.get("rating") as Int
+//            }
+//                .addOnFailureListener{ e ->
+//                    val dish = hashMapOf(
+//                        "rating" to Int
+//                    )
+//                    Data.database.collection("dishes")
+//                        .document(it.index.toString())
+//                        .set(dish)
+//                        .addOnSuccessListener { documentReference ->
+//                            it.rating = 0
+//                            Data.database.collection("dishes").document(it.index.toString()).update("rating", 0)
+//                            Log.d("AAA", "DocumentSnapshot added")
+//                        }
+//                        .addOnFailureListener { e ->
+//                            Log.d("TAG", "Error adding document", e)
+//                        }
+//            }
+//        }
+
+        /* val recipesMast
+        er = RecipesMaster()
          val availableDishes = recipesMaster.getAvailableDishes(Data.dishes, Data.checked)
          Data.availableDishes = availableDishes
 
