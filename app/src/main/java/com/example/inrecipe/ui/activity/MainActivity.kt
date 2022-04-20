@@ -57,7 +57,7 @@ class MainActivity : AppCompatActivity() {
             .addOnSuccessListener { result ->
                 for (document in result) {
                     if (document.get("id") == mAuth.currentUser?.uid.toString()) {
-                        Data.favorites = (document.get("favorites") as Array<Int>).toMutableList()
+                        Data.favorites = (document.get("favorites") as List<Int>).toMutableList()
                     }
                 }
             }

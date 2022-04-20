@@ -59,8 +59,7 @@ class SignInActivity : AppCompatActivity() {
                             } else {
                                 Log.d("BBB", "signInWithEmail:failure", task.exception)
                                 Toast.makeText(
-                                    baseContext, "Возникла ошибка (попробуйте усложнить пароль)" + task
-                                        .exception!!.message,
+                                    baseContext, "Возникла ошибка (${task.exception?.message})",
                                     Toast.LENGTH_SHORT
                                 ).show()
                             }
