@@ -53,17 +53,10 @@ class MainActivity : AppCompatActivity() {
         mAuth = FirebaseAuth.getInstance()
 //        mAuth.signOut()
 
-        Data.database.collection("users").get()
-            .addOnSuccessListener { result ->
-                for (document in result) {
-                    if (document.get("id") == mAuth.currentUser?.uid.toString()) {
-                        Data.favorites = (document.get("favorites") as List<Int>).toMutableList()
-                    }
+        Data.database.collection("users").document(mAuth.currentUser!!.uid).get()
+            .addOnSuccessListener { document ->
+                    Data.favorites = (document.get("favorites") as List<Int>).toMutableList()
                 }
-            }
-            .addOnFailureListener { exception ->
-                Log.w("BBB", "Error getting documents.", exception)
-            }
 
         /* val recipesMaster = RecipesMaster()
          val availableDishes = recipesMaster.getAvailableDishes(Data.dishes, Data.checked)

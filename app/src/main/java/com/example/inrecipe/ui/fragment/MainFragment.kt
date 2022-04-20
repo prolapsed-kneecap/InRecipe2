@@ -1,6 +1,7 @@
 package com.example.inrecipe.ui.fragment
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -13,6 +14,7 @@ import com.example.inrecipe.data.RecipesMaster
 import com.example.inrecipe.ui.activity.MainActivity
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.ktx.Firebase
 
 class MainFragment : Fragment() {
@@ -40,8 +42,20 @@ class MainFragment : Fragment() {
         val favouriteFab = view.findViewById<com.google.android.material.floatingactionbutton.FloatingActionButton>(R.id.fab)
 
         favouriteFab.setOnClickListener{
-            //val mAuth = FirebaseAuth.getInstance()
-            //availableDishes[viewPager.currentItem].index
+            val mAuth = FirebaseAuth.getInstance()
+            val dishIndex = availableDishes[viewPager.currentItem].index
+            if (Data.favorites.contains(dishIndex)){
+                Data.favorites.remove(dishIndex)
+                Data.database.collection("users").document(mAuth.currentUser!!.uid).update("favorites", Data.favorites.toList())
+
+//                favouriteFab.setBackgroundColor(resources.getColor(R.color.material_dynamic_neutral_variant50))
+            }
+            else{
+                Data.favorites.add(dishIndex)
+                Data.database.collection("users").document(mAuth.currentUser!!.uid).update("favorites", Data.favorites.toList())
+
+//                favouriteFab.setBackgroundColor(resources.getColor(R.color.orange))
+            }
         }
 
         return view

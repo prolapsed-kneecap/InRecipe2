@@ -45,9 +45,10 @@ class SignInActivity : AppCompatActivity() {
                                     "favorites" to listOf<Int>()
                                 )
                                 Data.database.collection("users")
-                                    .add(user)
+                                    .document(mAuth.currentUser!!.uid)
+                                    .set(user)
                                     .addOnSuccessListener { documentReference ->
-                                        Log.d("AAA", "DocumentSnapshot added with ID: ${documentReference.id}")
+                                        Log.d("AAA", "DocumentSnapshot added")
                                     }
                                     .addOnFailureListener { e ->
                                         Log.d("TAG", "Error adding document", e)
