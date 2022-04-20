@@ -5,13 +5,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.navigation.NavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.inrecipe.data.IngredientEnum
 import com.example.inrecipe.R
 import com.example.inrecipe.data.Data
 import com.example.inrecipe.data.Dish
 
-class FavoriteAdapter(private val dataSet: MutableList<Dish>) :
+class FavoriteAdapter(private val dataSet: MutableList<Dish>, val navController : NavController) :
     RecyclerView.Adapter<FavoriteAdapter.ViewHolder>() {
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -27,6 +28,10 @@ class FavoriteAdapter(private val dataSet: MutableList<Dish>) :
     }
 
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
+
+        viewHolder.itemView.setOnClickListener {
+            navController.navigate(R.id.action_favoritesFragment2_to_recipeInspectFragment)
+        }
 
         viewHolder.imageView.setImageResource(R.drawable.apple_pie)
         viewHolder.textView.text = dataSet[position].name

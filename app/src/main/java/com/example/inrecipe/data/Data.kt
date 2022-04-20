@@ -1,5 +1,6 @@
 package com.example.inrecipe.data
 
+import com.example.inrecipe.R
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
@@ -61,5 +62,13 @@ object Data {
         1,
         3,
         4
+    )
+
+    var mTopImageResourceIds = intArrayOf(
+        R.drawable.apple_pie,
+        R.drawable.apple_pie,
+        R.drawable.apple_pie,
+        R.drawable.apple_pie,
+        R.drawable.apple_pie,
     )
 }

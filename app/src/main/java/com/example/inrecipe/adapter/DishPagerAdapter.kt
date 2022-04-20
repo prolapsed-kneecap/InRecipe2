@@ -7,6 +7,7 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import com.example.inrecipe.data.Dish
 import com.example.inrecipe.R
+import com.example.inrecipe.data.Data
 import com.example.inrecipe.ui.fragment.DishFragment
 
 
@@ -18,13 +19,6 @@ class DishPagerAdapter internal constructor(
     FragmentPagerAdapter(fm!!) {
     private lateinit var mDishNames: MutableList<String>
     private lateinit var mDishDescriptions: MutableList<String>
-    private var mTopImageResourceIds = intArrayOf(
-        R.drawable.apple_pie,
-        R.drawable.apple_pie,
-        R.drawable.apple_pie,
-        R.drawable.apple_pie,
-        R.drawable.apple_pie,
-    )
 
     override fun getItem(position: Int): Fragment {
         val arguments = Bundle()
@@ -34,7 +28,7 @@ class DishPagerAdapter internal constructor(
             DishFragment.CAT_DESCRIPTIONS,
             mDishDescriptions[position]
         )
-        arguments.putInt(DishFragment.TOP_IMAGE, mTopImageResourceIds[position])
+        arguments.putInt(DishFragment.TOP_IMAGE, Data.mTopImageResourceIds[position])
         val catsFragment = DishFragment()
         catsFragment.arguments = arguments
         return catsFragment

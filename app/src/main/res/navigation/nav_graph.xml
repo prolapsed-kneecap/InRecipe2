@@ -8,11 +8,7 @@
     <fragment
         android:id="@+id/ingredientFragment"
         android:name="com.example.inrecipe.ui.fragment.IngredientFragment"
-        android:label="Выберите ингредиенты" >
-        <action
-            android:id="@+id/action_ingredientFragment_to_mainFragment"
-            app:destination="@id/mainFragment" />
-    </fragment>
+        android:label="Выберите ингредиенты" />
     <fragment
         android:id="@+id/mainFragment"
         android:name="com.example.inrecipe.ui.fragment.MainFragment"
@@ -22,5 +18,14 @@
         android:id="@+id/favoritesFragment2"
         android:name="com.example.inrecipe.ui.fragment.FavoritesFragment"
         android:label="Избранное"
-        tools:layout="@layout/favorites_fragment" />
+        tools:layout="@layout/favorites_fragment" >
+        <action
+            android:id="@+id/action_favoritesFragment2_to_recipeInspectFragment"
+            app:destination="@id/recipeInspectFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/recipeInspectFragment"
+        android:name="com.example.inrecipe.ui.fragment.RecipeInspectFragment"
+        android:label="Рецепт"
+        tools:layout="@layout/recipe_inspect_fragment" />
 </navigation>
