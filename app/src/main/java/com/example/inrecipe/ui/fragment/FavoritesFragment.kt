@@ -27,10 +27,13 @@ class FavoritesFragment : Fragment() {
 
         val favs = mutableListOf<Dish>()
 
+        val dishes = Data.dishes
+
         Data.favorites.forEach { n ->
-            Data.dishes.forEach { dish ->
-                if (n == dish.index) {
-                    favs.add(dish)
+            for (i in dishes) {
+                if (n == i.index){
+                    favs.add(i)
+                    break
                 }
             }
         }

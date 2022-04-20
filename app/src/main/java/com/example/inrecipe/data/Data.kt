@@ -59,9 +59,7 @@ object Data {
     val database = Firebase.firestore
 
     var favorites = mutableListOf<Int>(
-        1,
-        3,
-        4
+
     )
 
     var mTopImageResourceIds = intArrayOf(

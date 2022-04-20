@@ -57,33 +57,10 @@ class MainActivity : AppCompatActivity() {
             .addOnSuccessListener { document ->
                     Data.favorites = (document.get("favorites") as List<Int>).toMutableList()
                 }
-
-
-//        Data.dishes.forEach { it ->
-//            Data.database.collection("dishes").document(it.index.toString()).get()
-//                .addOnSuccessListener { document ->
-//                    it.rating = document.get("rating") as Int
-//            }
-//                .addOnFailureListener{ e ->
-//                    val dish = hashMapOf(
-//                        "rating" to Int
-//                    )
-//                    Data.database.collection("dishes")
-//                        .document(it.index.toString())
-//                        .set(dish)
-//                        .addOnSuccessListener { documentReference ->
-//                            it.rating = 0
-//                            Data.database.collection("dishes").document(it.index.toString()).update("rating", 0)
-//                            Log.d("AAA", "DocumentSnapshot added")
-//                        }
-//                        .addOnFailureListener { e ->
-//                            Log.d("TAG", "Error adding document", e)
-//                        }
-//            }
-//        }
-
-        /* val recipesMast
-        er = RecipesMaster()
+            .addOnFailureListener {
+                Log.d("ABOBA", it.message.toString())
+            }
+        /* val recipesMaster = RecipesMaster()
          val availableDishes = recipesMaster.getAvailableDishes(Data.dishes, Data.checked)
          Data.availableDishes = availableDishes
 
@@ -112,6 +89,10 @@ class MainActivity : AppCompatActivity() {
             R.id.ingredientFragment -> {
                 mAuth.signOut()
                 startActivity(Intent(this, AuthActivity::class.java))
+                true
+            }
+            R.id.searchFragment -> {
+                startActivity(Intent(this, SearchActivity::class.java))
                 true
             }
             else -> super.onOptionsItemSelected(item)
