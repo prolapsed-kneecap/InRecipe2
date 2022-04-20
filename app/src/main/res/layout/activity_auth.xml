@@ -32,6 +32,7 @@
             android:id="@+id/emailEditText"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:inputType="textEmailAddress"
             android:fontFamily="@font/mont_regular"
             android:hint="Электронная почта" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -52,6 +53,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/passwordEditText"
             android:layout_width="match_parent"
+            android:inputType="textPassword"
             android:layout_height="match_parent"
             android:fontFamily="@font/mont_regular"
             android:hint="Пароль"/>
@@ -64,6 +66,7 @@
         android:layout_below="@id/passwordLayout"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
+        android:textColor="@color/white"
         android:backgroundTint="@color/orange"
         android:fontFamily="@font/mont_bold"
         android:text="Войти"

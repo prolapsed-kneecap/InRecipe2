@@ -40,8 +40,8 @@ class MainFragment : Fragment() {
         val favouriteFab = view.findViewById<com.google.android.material.floatingactionbutton.FloatingActionButton>(R.id.fab)
 
         favouriteFab.setOnClickListener{
-            val mAuth = FirebaseAuth.getInstance()
-            availableDishes[viewPager.currentItem].index
+            //val mAuth = FirebaseAuth.getInstance()
+            //availableDishes[viewPager.currentItem].index
         }
 
         return view

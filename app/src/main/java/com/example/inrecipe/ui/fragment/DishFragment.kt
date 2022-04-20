@@ -23,6 +23,8 @@ class DishFragment : Fragment() {
             val catDescription = arguments.getString(CAT_DESCRIPTIONS)
             val topCardResourceId = arguments.getInt(TOP_IMAGE)
             displayValues(view, catName, catDescription, topCardResourceId)
+        } else {
+            displayValues(view, "AAA", "catDescription", 0)
         }
         return view
     }

@@ -19,6 +19,8 @@ class AuthActivity : AppCompatActivity() {
 
         supportActionBar?.title = "Авторизация"
 
+        supportActionBar?.setBackgroundDrawable(resources.getDrawable(R.color.orange))
+
         val emailEditText = findViewById<TextInputEditText>(R.id.emailEditText)
         val passwordEditText = findViewById<TextInputEditText>(R.id.passwordEditText)
         val loginButton = findViewById<MaterialButton>(R.id.LoginBtn)
@@ -31,6 +33,7 @@ class AuthActivity : AppCompatActivity() {
         if (mAuth.currentUser != null) {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
+            finish()
         }
 
         loginButton.setOnClickListener {

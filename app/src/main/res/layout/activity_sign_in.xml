@@ -32,6 +32,7 @@
             android:id="@+id/emailEditText_register"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:inputType="textEmailAddress"
             android:fontFamily="@font/mont_regular"
             android:hint="Электронная почта" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -54,6 +55,7 @@
             android:id="@+id/passwordEditText_register"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:inputType="textPassword"
             android:fontFamily="@font/mont_regular"
             android:hint="Пароль" />
     </com.google.android.material.textfield.TextInputLayout>
