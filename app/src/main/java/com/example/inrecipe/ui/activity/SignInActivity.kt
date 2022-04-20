@@ -19,6 +19,7 @@ class SignInActivity : AppCompatActivity() {
         setContentView(R.layout.activity_sign_in)
 
         supportActionBar?.title = "Регистрация"
+        supportActionBar?.setBackgroundDrawable(resources.getDrawable(R.color.orange))
 
         val emailEditText = findViewById<TextInputEditText>(R.id.emailEditText_register)
         val passwordEditText = findViewById<TextInputEditText>(R.id.passwordEditText_register)
