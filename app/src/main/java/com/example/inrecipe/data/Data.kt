@@ -1,5 +1,9 @@
 package com.example.inrecipe.data
 
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
+
 object Data {
     val dishes = mutableSetOf<Dish>(
         Dish(
@@ -52,7 +56,9 @@ object Data {
 
     var availableDishes = listOf<Dish>()
 
-    val favorites = mutableListOf<Int>(
+    val database = Firebase.firestore
+
+    var favorites = mutableListOf<Int>(
         1,
         3,
         4

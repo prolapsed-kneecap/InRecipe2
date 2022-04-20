@@ -1,6 +1,8 @@
 package com.example.inrecipe.ui.activity
 
+import android.content.ContentValues.TAG
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -8,6 +10,11 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.inrecipe.R
+import com.example.inrecipe.data.Data
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 
 
 class MainActivity : AppCompatActivity() {
@@ -33,6 +40,20 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         bnv.setupWithNavController(navController)
 
+        val mAuth = FirebaseAuth.getInstance()
+//        mAuth.signOut()
+
+        Data.database.collection("users").get()
+            .addOnSuccessListener { result ->
+                for (document in result) {
+                    if (document.get("id") == mAuth.currentUser?.uid.toString()){
+                        Data.favorites = (document.get("favorites") as Array<Int>).toMutableList()
+                    }
+                }
+            }
+            .addOnFailureListener { exception ->
+                Log.w(TAG, "Error getting documents.", exception)
+            }
 
         /* val recipesMaster = RecipesMaster()
          val availableDishes = recipesMaster.getAvailableDishes(Data.dishes, Data.checked)

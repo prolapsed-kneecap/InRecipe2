@@ -11,6 +11,9 @@ import com.example.inrecipe.adapter.DishPagerAdapter
 import com.example.inrecipe.R
 import com.example.inrecipe.data.RecipesMaster
 import com.example.inrecipe.ui.activity.MainActivity
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.ktx.Firebase
 
 class MainFragment : Fragment() {
     override fun onCreateView(
@@ -33,6 +36,13 @@ class MainFragment : Fragment() {
         viewPager.adapter = dishPagerAdapter
 //        viewPager.adapter = adapter
         viewPager.currentItem = 0
+
+        val favouriteFab = view.findViewById<com.google.android.material.floatingactionbutton.FloatingActionButton>(R.id.fab)
+
+        favouriteFab.setOnClickListener{
+            val mAuth = FirebaseAuth.getInstance()
+            availableDishes[viewPager.currentItem].index
+        }
 
         return view
     }

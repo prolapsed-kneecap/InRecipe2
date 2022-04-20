@@ -1,12 +1,14 @@
 package com.example.inrecipe.ui.activity
 
 import android.content.ContentValues
+import android.content.ContentValues.TAG
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import com.example.inrecipe.R
+import com.example.inrecipe.data.Data
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
@@ -36,13 +38,28 @@ class SignInActivity : AppCompatActivity() {
                         .addOnCompleteListener(this) { task ->
                             if (task.isSuccessful) {
                                 Log.d(ContentValues.TAG, "signInWithEmail:success")
+
+                                val user = hashMapOf(
+                                    "id" to mAuth.currentUser!!.uid,
+                                    "favorites" to arrayOf<Int>()
+                                )
+                                Data.database.collection("users1")
+                                    .add(user)
+                                    .addOnSuccessListener { documentReference ->
+                                        Log.d("AAA", "DocumentSnapshot added with ID: ${documentReference.id}")
+                                    }
+                                    .addOnFailureListener { e ->
+                                        Log.d("TAG", "Error adding document", e)
+                                    }
+
                                 val intent = Intent(this, AuthActivity::class.java)
                                 startActivity(intent)
                                 finish()
                             } else {
-                                Log.w(ContentValues.TAG, "signInWithEmail:failure", task.exception)
+                                Log.d("BBB", "signInWithEmail:failure", task.exception)
                                 Toast.makeText(
-                                    baseContext, "Возникла ошибка",
+                                    baseContext, "Возникла ошибка (попробуйте усложнить пароль)" + task
+                                        .exception!!.message,
                                     Toast.LENGTH_SHORT
                                 ).show()
                             }
