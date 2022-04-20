@@ -31,6 +31,7 @@ class AuthActivity : AppCompatActivity() {
         if (mAuth.currentUser != null) {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
+            finish()
         }
 
         loginButton.setOnClickListener {

@@ -5,5 +5,5 @@
         android:id="@+id/ingredientFragment"
         android:icon="@drawable/logout"
         android:title="Выйти из аккаунта"
-        app:showAsAction="never" />
+        app:showAsAction="never"/>
 </menu>

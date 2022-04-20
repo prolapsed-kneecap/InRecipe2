@@ -43,7 +43,7 @@ class SignInActivity : AppCompatActivity() {
                                     "id" to mAuth.currentUser!!.uid,
                                     "favorites" to arrayOf<Int>()
                                 )
-                                Data.database.collection("users1")
+                                Data.database.collection("users")
                                     .add(user)
                                     .addOnSuccessListener { documentReference ->
                                         Log.d("AAA", "DocumentSnapshot added with ID: ${documentReference.id}")
