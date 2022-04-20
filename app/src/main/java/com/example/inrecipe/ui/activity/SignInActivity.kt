@@ -37,13 +37,13 @@ class SignInActivity : AppCompatActivity() {
                     )
                         .addOnCompleteListener(this) { task ->
                             if (task.isSuccessful) {
-                                Log.d(ContentValues.TAG, "signInWithEmail:success")
+                                Log.d("ASD", "signInWithEmail:success")
 
                                 val user = hashMapOf(
                                     "id" to mAuth.currentUser!!.uid,
-                                    "favorites" to arrayOf<Int>()
+                                    "favorites" to listOf<Int>()
                                 )
-                                Data.database.collection("users1")
+                                Data.database.collection("users")
                                     .add(user)
                                     .addOnSuccessListener { documentReference ->
                                         Log.d("AAA", "DocumentSnapshot added with ID: ${documentReference.id}")
