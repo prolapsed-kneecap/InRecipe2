@@ -57,7 +57,9 @@ class MainActivity : AppCompatActivity() {
             .addOnSuccessListener { document ->
                     Data.favorites = (document.get("favorites") as List<Int>).toMutableList()
                 }
-
+            .addOnFailureListener {
+                Log.d("ABOBA", it.message.toString())
+            }
         /* val recipesMaster = RecipesMaster()
          val availableDishes = recipesMaster.getAvailableDishes(Data.dishes, Data.checked)
          Data.availableDishes = availableDishes
@@ -87,6 +89,10 @@ class MainActivity : AppCompatActivity() {
             R.id.ingredientFragment -> {
                 mAuth.signOut()
                 startActivity(Intent(this, AuthActivity::class.java))
+                true
+            }
+            R.id.searchFragment -> {
+                startActivity(Intent(this, SearchActivity::class.java))
                 true
             }
             else -> super.onOptionsItemSelected(item)

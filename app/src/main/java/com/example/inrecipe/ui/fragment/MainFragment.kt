@@ -26,33 +26,51 @@ class MainFragment : Fragment() {
 
 //        (activity as MainActivity).supportActionBar?.title = "Доступные рецепты"
 
+        val favouriteFab =
+            view.findViewById<com.google.android.material.floatingactionbutton.FloatingActionButton>(
+                R.id.fab
+            )
+
         val recipesMaster = RecipesMaster()
         val availableDishes = recipesMaster.getAvailableDishes(Data.dishes, Data.checked)
         Data.availableDishes = availableDishes
+
+        if (availableDishes.isEmpty()) {
+            favouriteFab.visibility = View.GONE
+        } else {
+            favouriteFab.visibility = View.VISIBLE
+        }
 
 //        val adapter = MyAdapter(supportFragmentManager)
 
         val viewPager = view.findViewById<ViewPager>(R.id.viewpager)
 //        val striped = view.findViewById<PagerTitleStrip>(R.id.pager_title_strip)
-        val dishPagerAdapter = DishPagerAdapter((activity as MainActivity).supportFragmentManager, requireContext(), availableDishes)
+        val dishPagerAdapter = DishPagerAdapter(
+            (activity as MainActivity).supportFragmentManager,
+            requireContext(),
+            availableDishes
+        )
         viewPager.adapter = dishPagerAdapter
 //        viewPager.adapter = adapter
         viewPager.currentItem = 0
 
-        val favouriteFab = view.findViewById<com.google.android.material.floatingactionbutton.FloatingActionButton>(R.id.fab)
-
-        favouriteFab.setOnClickListener{
+        favouriteFab.setOnClickListener {
             val mAuth = FirebaseAuth.getInstance()
             val dishIndex = availableDishes[viewPager.currentItem].index
-            if (Data.favorites.contains(dishIndex)){
+            if (Data.favorites.contains(dishIndex)) {
                 Data.favorites.remove(dishIndex)
-                Data.database.collection("users").document(mAuth.currentUser!!.uid).update("favorites", Data.favorites.toList())
+                Data.database.collection("users").document(mAuth.currentUser!!.uid)
+                    .update("favorites", Data.favorites.toSet().toList()).addOnFailureListener {
+                        Log.d("ABOBA_1", it.message.toString())
+                    }
 
 //                favouriteFab.setBackgroundColor(resources.getColor(R.color.material_dynamic_neutral_variant50))
-            }
-            else{
+            } else {
                 Data.favorites.add(dishIndex)
-                Data.database.collection("users").document(mAuth.currentUser!!.uid).update("favorites", Data.favorites.toList())
+                Data.database.collection("users").document(mAuth.currentUser!!.uid)
+                    .update("favorites", Data.favorites.toSet().toList()).addOnFailureListener {
+                        Log.d("ABOBA_2", it.message.toString())
+                    }
 
 //                favouriteFab.setBackgroundColor(resources.getColor(R.color.orange))
             }
