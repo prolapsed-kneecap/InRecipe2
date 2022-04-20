@@ -29,6 +29,7 @@ class DishPagerAdapter internal constructor(
             mDishDescriptions[position]
         )
         arguments.putInt(DishFragment.TOP_IMAGE, Data.mTopImageResourceIds[position])
+        arguments.putString("recipe", Data.recipes[position])
         val catsFragment = DishFragment()
         catsFragment.arguments = arguments
         return catsFragment

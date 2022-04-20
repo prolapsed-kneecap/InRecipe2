@@ -31,57 +31,70 @@ class MainFragment : Fragment() {
 
 //        (activity as MainActivity).supportActionBar?.title = "Доступные рецепты"
 
-        val favouriteFab = view.findViewById<com.google.android.material.floatingactionbutton.FloatingActionButton>(R.id.fab)
+        val favouriteFab =
+            view.findViewById<com.google.android.material.floatingactionbutton.FloatingActionButton>(
+                R.id.fab
+            )
 
         val recipesMaster = RecipesMaster()
         val availableDishes = recipesMaster.getAvailableDishes(Data.dishes, Data.checked)
         Data.availableDishes = availableDishes
+        val likeFab =
+            view.findViewById<com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton>(
+                R.id.fabLike
+            )
 
         if (availableDishes.isEmpty()) {
             favouriteFab.visibility = View.GONE
+            likeFab.visibility = View.GONE
         } else {
+            likeFab.visibility = View.VISIBLE
             favouriteFab.visibility = View.VISIBLE
         }
 //        val adapter = MyAdapter(supportFragmentManager)
 
         val viewPager = view.findViewById<ViewPager>(R.id.viewpager)
 //        val striped = view.findViewById<PagerTitleStrip>(R.id.pager_title_strip)
-        val dishPagerAdapter = DishPagerAdapter((activity as MainActivity).supportFragmentManager, requireContext(), availableDishes)
+        val dishPagerAdapter = DishPagerAdapter(
+            (activity as MainActivity).supportFragmentManager,
+            requireContext(),
+            availableDishes
+        )
         viewPager.adapter = dishPagerAdapter
 //        viewPager.adapter = adapter
         viewPager.currentItem = 0
 
-        val likeFab = view.findViewById<com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton>(R.id.fabLike)
 
-        favouriteFab.setOnClickListener{
+        favouriteFab.setOnClickListener {
             val mAuth = FirebaseAuth.getInstance()
             val dishIndex = availableDishes[viewPager.currentItem].index
-            if (Data.favorites.contains(dishIndex)){
+            if (Data.favorites.contains(dishIndex)) {
                 Data.favorites.remove(dishIndex)
-                Data.database.collection("users").document(mAuth.currentUser!!.uid).update("favorites", Data.favorites.toList())
+                Data.database.collection("users").document(mAuth.currentUser!!.uid)
+                    .update("favorites", Data.favorites.toList())
 
 //                favouriteFab.setBackgroundColor(resources.getColor(R.color.material_dynamic_neutral_variant50))
-            }
-            else{
+            } else {
                 Data.favorites.add(dishIndex)
-                Data.database.collection("users").document(mAuth.currentUser!!.uid).update("favorites", Data.favorites.toList())
+                Data.database.collection("users").document(mAuth.currentUser!!.uid)
+                    .update("favorites", Data.favorites.toList())
 
 //                favouriteFab.setBackgroundColor(resources.getColor(R.color.orange))
             }
         }
 
-        likeFab.setOnClickListener{
+        likeFab.setOnClickListener {
 
 //            Log.d("ASDFGH", availableDishes.toString())
             val dishIndex = availableDishes[viewPager.currentItem].index
 //            Log.d("ASDFGH", dishIndex.toString())
 //            lifecycleScope.launch(Dispatchers.IO) {
-                val resu = Data.database.collection("dishes").document(dishIndex.toString()).get().addOnSuccessListener {
+            val resu = Data.database.collection("dishes").document(dishIndex.toString()).get()
+                .addOnSuccessListener {
                     it["rating"]?.let { rating ->
 
-                            Data.database.collection("dishes").document(dishIndex.toString())
-                                .update("rating", (rating.toString().toInt()) + 1)
-                        Toast.makeText(requireContext(), rating.toString(), Toast.LENGTH_SHORT).show()
+                        Data.database.collection("dishes").document(dishIndex.toString())
+                            .update("rating", (rating.toString().toInt()) + 1)
                         likeFab.text = (rating.toString().toInt() + 1).toString()
                     }
                 }

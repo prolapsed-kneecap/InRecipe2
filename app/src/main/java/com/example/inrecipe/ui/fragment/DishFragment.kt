@@ -22,20 +22,25 @@ class DishFragment : Fragment() {
             val catName = arguments.getString(CAT_NAMES)
             val catDescription = arguments.getString(CAT_DESCRIPTIONS)
             val topCardResourceId = arguments.getInt(TOP_IMAGE)
-            displayValues(view, catName, catDescription, topCardResourceId)
+            val recipe = arguments.getString("recipe")
+
+            displayValues(view, catName, catDescription, topCardResourceId, recipe.toString())
         } else {
-            displayValues(view, "AAA", "catDescription", 0)
+            displayValues(view, "AAA", "catDescription", 0, "a")
         }
         return view
     }
 
     private fun displayValues(
         v: View, name: String?,
-        catDescription: String?, topCardResourceId: Int
+        catDescription: String?, topCardResourceId: Int,
+        recipe:String
     ) {
         val catNameTextView = v.findViewById<TextView>(R.id.catTitle)
         val catDescriptionTextView = v.findViewById<TextView>(R.id.catDescription)
         val cardImageView = v.findViewById<ImageView>(R.id.topImage)
+        val recipeTextView = v.findViewById<TextView>(R.id.recipeTextView)
+        recipeTextView.text = recipe
         catNameTextView.text = name
         catDescriptionTextView.text = catDescription
         cardImageView.setImageResource(topCardResourceId)
