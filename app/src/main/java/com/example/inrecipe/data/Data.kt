@@ -5,7 +5,7 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
 object Data {
-    val dishes = mutableListOf<Dish>(
+    val dishes = listOf<Dish>(
         Dish(
             1,
             "Фруктовый салат",
@@ -13,7 +13,8 @@ object Data {
                 IngredientEnum.APPLE,
                 IngredientEnum.TANGERINE,
                 IngredientEnum.STRAWBERRY
-            )
+            ),
+            R.drawable.fruit_salad
         ),
         Dish(
             2,
@@ -21,14 +22,16 @@ object Data {
             setOf(
                 IngredientEnum.TOMATO,
                 IngredientEnum.PEPPER
-            )
+            ),
+            R.drawable.salad
         ),
         Dish(
             3,
             "Яичница",
             setOf(
                 IngredientEnum.EGGS
-            )
+            ),
+            R.drawable.glaz
         ),
         Dish(
             4,
@@ -38,7 +41,8 @@ object Data {
                 IngredientEnum.FLOUR,
                 IngredientEnum.MILK,
                 IngredientEnum.EGGS
-            )
+            ),
+            R.drawable.apple_pie
         ),
         Dish(
             5,
@@ -48,7 +52,8 @@ object Data {
                 IngredientEnum.BUTTER,
                 IngredientEnum.EGGS,
                 IngredientEnum.FLOUR,
-            )
+            ),
+            R.drawable.chicken_soup
         ),
         Dish(
             6,
@@ -58,7 +63,8 @@ object Data {
                 IngredientEnum.BUTTER,
                 IngredientEnum.EGGS,
                 IngredientEnum.FLOUR,
-            )
+            ),
+            R.drawable.tart
         ),
     )
     val checked = mutableSetOf<IngredientEnum>(
@@ -68,7 +74,7 @@ object Data {
 
     val database = Firebase.firestore
 
-    var favorites = mutableListOf<Int>(
+    var favorites = mutableSetOf<Int>(
 
     )
 

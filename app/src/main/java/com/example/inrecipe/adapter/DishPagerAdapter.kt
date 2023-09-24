@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
+import androidx.fragment.app.FragmentStatePagerAdapter
 import com.example.inrecipe.data.Dish
 import com.example.inrecipe.R
 import com.example.inrecipe.data.Data
@@ -16,7 +17,7 @@ class DishPagerAdapter internal constructor(
     context: Context,
     dishes: List<Dish>
 ) :
-    FragmentPagerAdapter(fm!!) {
+    FragmentStatePagerAdapter(fm!!) {
     private lateinit var mDishNames: MutableList<String>
     private lateinit var mDishDescriptions: MutableList<String>
 

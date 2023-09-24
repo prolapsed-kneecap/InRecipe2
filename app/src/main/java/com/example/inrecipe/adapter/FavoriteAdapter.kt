@@ -1,5 +1,7 @@
 package com.example.inrecipe.adapter
 
+import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -30,10 +32,12 @@ class FavoriteAdapter(private val dataSet: MutableList<Dish>, val navController 
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
 
         viewHolder.itemView.setOnClickListener {
-            navController.navigate(R.id.action_favoritesFragment2_to_recipeInspectFragment)
+            val bundle = Bundle()
+            bundle.putInt("position", dataSet[position].index)
+            navController.navigate(R.id.action_favoritesFragment2_to_recipeInspectFragment, bundle)
         }
 
-        viewHolder.imageView.setImageResource(R.drawable.apple_pie)
+        viewHolder.imageView.setImageResource(dataSet[position].image)
         viewHolder.textView.text = dataSet[position].name
 
 //        var isChosen = false

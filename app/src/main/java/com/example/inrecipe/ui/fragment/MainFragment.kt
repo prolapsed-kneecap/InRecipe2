@@ -2,25 +2,18 @@ package com.example.inrecipe.ui.fragment
 
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.lifecycle.lifecycleScope
+import androidx.fragment.app.Fragment
 import androidx.viewpager.widget.ViewPager
-import com.example.inrecipe.data.Data
-import com.example.inrecipe.adapter.DishPagerAdapter
+import androidx.viewpager.widget.ViewPager.OnPageChangeListener
 import com.example.inrecipe.R
-import com.example.inrecipe.data.Dish
+import com.example.inrecipe.adapter.DishPagerAdapter
+import com.example.inrecipe.data.Data
 import com.example.inrecipe.data.RecipesMaster
 import com.example.inrecipe.ui.activity.MainActivity
-import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.DocumentReference
-import com.google.firebase.ktx.Firebase
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 
 class MainFragment : Fragment() {
     override fun onCreateView(
@@ -28,6 +21,8 @@ class MainFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.main_fragment, container, false)
+
+        var position = arguments?.getInt("position")
 
 //        (activity as MainActivity).supportActionBar?.title = "Доступные рецепты"
 
@@ -56,29 +51,61 @@ class MainFragment : Fragment() {
         val viewPager = view.findViewById<ViewPager>(R.id.viewpager)
 //        val striped = view.findViewById<PagerTitleStrip>(R.id.pager_title_strip)
         val dishPagerAdapter = DishPagerAdapter(
-            (activity as MainActivity).supportFragmentManager,
+            childFragmentManager,
             requireContext(),
             availableDishes
         )
         viewPager.adapter = dishPagerAdapter
 //        viewPager.adapter = adapter
-        viewPager.currentItem = 0
+        if (position != null) {
+            viewPager.currentItem = position
+        } else {
+            viewPager.currentItem = 0
+        }
+        viewPager.addOnPageChangeListener(object : OnPageChangeListener {
+            override fun onPageScrolled(
+                position: Int,
+                positionOffset: Float,
+                positionOffsetPixels: Int
+            ) {
+                var likes = 0
+                Data.database.collection("dishes").document(availableDishes[viewPager.currentItem].index.toString()).get()
+                    .addOnSuccessListener {
+                        it["rating"]?.let { rating ->
+                            likeFab.text = (rating.toString().toInt()).toString()
+                        }
+                    }
+            }
+            override fun onPageSelected(position: Int) {}
+            override fun onPageScrollStateChanged(state: Int) {}
+        })
+
+
 
 
         favouriteFab.setOnClickListener {
             val mAuth = FirebaseAuth.getInstance()
+            Data.database.collection("users").document(mAuth.currentUser!!.uid).get()
+                .addOnSuccessListener {
+                    it["favorites"]?.let {
+                        Data.favorites = (it as List<Int>).toMutableSet()
+                    }
+                }
             val dishIndex = availableDishes[viewPager.currentItem].index
             if (Data.favorites.contains(dishIndex)) {
                 Data.favorites.remove(dishIndex)
                 Data.database.collection("users").document(mAuth.currentUser!!.uid)
-                    .update("favorites", Data.favorites.toList())
+                    .update("favorites", (Data.favorites).toList())
 
+                Log.d("AAA", dishIndex.toString())
+                Log.d("AAA", Data.favorites.toString())
 //                favouriteFab.setBackgroundColor(resources.getColor(R.color.material_dynamic_neutral_variant50))
             } else {
                 Data.favorites.add(dishIndex)
                 Data.database.collection("users").document(mAuth.currentUser!!.uid)
-                    .update("favorites", Data.favorites.toList())
-
+                    .update("favorites", (Data.favorites).toList())
+                Log.d("AAA", dishIndex.toString())
+                Log.d("AAA", Data.favorites.toString())
 //                favouriteFab.setBackgroundColor(resources.getColor(R.color.orange))
             }
         }

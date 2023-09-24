@@ -16,7 +16,7 @@ import com.example.inrecipe.data.Dish
 
 class SearchActivity : AppCompatActivity() {
 
-    lateinit var dishList: MutableList<Dish>
+    lateinit var dishList: List<Dish>
     lateinit var adapter: SearchAdapter
 
     private fun filter(text: String) {

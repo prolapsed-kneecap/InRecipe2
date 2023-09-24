@@ -22,6 +22,9 @@
         <action
             android:id="@+id/action_favoritesFragment2_to_recipeInspectFragment"
             app:destination="@id/recipeInspectFragment" />
+        <action
+            android:id="@+id/action_favoritesFragment2_to_mainFragment2"
+            app:destination="@id/mainFragment" />
     </fragment>
     <fragment
         android:id="@+id/recipeInspectFragment"

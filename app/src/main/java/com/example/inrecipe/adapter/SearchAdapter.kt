@@ -11,10 +11,10 @@ import com.example.inrecipe.R
 import com.example.inrecipe.data.Dish
 
 
-class SearchAdapter(courseModalArrayList: MutableList<Dish>, context: Context) :
+class SearchAdapter(courseModalArrayList: List<Dish>, context: Context) :
     RecyclerView.Adapter<SearchAdapter.ViewHolder>() {
     // creating a variable for array list and context.
-    private var courseModalArrayList: MutableList<Dish>
+    private var courseModalArrayList: List<Dish>
     private val context: Context
 
     fun filterList(filterllist: MutableList<Dish>) {

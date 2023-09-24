@@ -55,7 +55,7 @@ class MainActivity : AppCompatActivity() {
 
         Data.database.collection("users").document(mAuth.currentUser!!.uid).get()
             .addOnSuccessListener { document ->
-                    Data.favorites = (document.get("favorites") as List<Int>).toMutableList()
+                    Data.favorites = (document.get("favorites") as List<Int>).toMutableSet()
                 }
             .addOnFailureListener {
                 Log.d("ABOBA", it.message.toString())
@@ -89,6 +89,8 @@ class MainActivity : AppCompatActivity() {
             R.id.ingredientFragment -> {
                 mAuth.signOut()
                 startActivity(Intent(this, AuthActivity::class.java))
+                Data.favorites.clear()
+                finish()
                 true
             }
             R.id.searchFragment -> {
