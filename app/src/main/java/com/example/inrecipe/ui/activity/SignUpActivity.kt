@@ -1,7 +1,5 @@
 package com.example.inrecipe.ui.activity
 
-import android.content.ContentValues
-import android.content.ContentValues.TAG
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -13,17 +11,16 @@ import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
 
-class SignInActivity : AppCompatActivity() {
+class SignUpActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_sign_in)
-
+        setContentView(R.layout.activity_sign_up)
         supportActionBar?.title = "Регистрация"
         supportActionBar?.setBackgroundDrawable(resources.getDrawable(R.color.orange))
 
         val emailEditText = findViewById<TextInputEditText>(R.id.emailEditText_register)
         val passwordEditText = findViewById<TextInputEditText>(R.id.passwordEditText_register)
-        val registerButton = findViewById<MaterialButton>(R.id.LoginBtn_register)
+        val registerButton = findViewById<MaterialButton>(R.id.registerButton)
 
         val mAuth = FirebaseAuth.getInstance()
 
@@ -55,6 +52,7 @@ class SignInActivity : AppCompatActivity() {
                                     }
 
                                 val intent = Intent(this, AuthActivity::class.java)
+                                Data.uid = mAuth.currentUser!!.uid
                                 startActivity(intent)
                                 finish()
                             } else {

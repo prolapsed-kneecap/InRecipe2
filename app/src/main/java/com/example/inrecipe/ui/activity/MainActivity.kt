@@ -4,9 +4,9 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
-import android.view.MenuInflater
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -14,24 +14,16 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.inrecipe.data.Data
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.ktx.firestore
-import com.google.firebase.ktx.Firebase
 
-import androidx.appcompat.view.menu.MenuBuilder
 import com.example.inrecipe.R
 
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var mAuth : FirebaseAuth
-    private lateinit var activity : MainActivity
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-//        supportActionBar?.hide()
 
         supportActionBar?.title = ""
         supportActionBar?.setBackgroundDrawable(resources.getDrawable(R.color.orange))
@@ -44,42 +36,25 @@ class MainActivity : AppCompatActivity() {
             setOf(
                 R.id.ingredientFragment,
                 R.id.mainFragment,
-                R.id.favoritesFragment2
+                R.id.favoritesFragment
             )
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         bnv.setupWithNavController(navController)
 
         mAuth = FirebaseAuth.getInstance()
-//        mAuth.signOut()
 
         Data.database.collection("users").document(mAuth.currentUser!!.uid).get()
             .addOnSuccessListener { document ->
                     Data.favorites = (document.get("favorites") as List<Int>).toMutableSet()
                 }
             .addOnFailureListener {
-                Log.d("ABOBA", it.message.toString())
+                Log.d("USERDATA_FAILURE", it.message.toString())
             }
-        /* val recipesMaster = RecipesMaster()
-         val availableDishes = recipesMaster.getAvailableDishes(Data.dishes, Data.checked)
-         Data.availableDishes = availableDishes
-
- //        val adapter = MyAdapter(supportFragmentManager)
-
-         val viewPager = findViewById<ViewPager>(R.id.viewpager)
-         val striped = findViewById<PagerTitleStrip>(R.id.pager_title_strip)
-         val dishPagerAdapter = DishPagerAdapter(supportFragmentManager, this, availableDishes)
-         viewPager.adapter = dishPagerAdapter
- //        viewPager.adapter = adapter
-         viewPager.currentItem = 1*/
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.top_menu, menu)
-
-//        if (menu is MenuBuilder) {
-//            menu.setOptionalIconsVisible(true)
-//        }
 
         return true
     }
@@ -100,10 +75,4 @@ class MainActivity : AppCompatActivity() {
             else -> super.onOptionsItemSelected(item)
         }
     }
-
-//        Toast.makeText(this, availableDishes.toString(), Toast.LENGTH_SHORT).show()
-//        availableDishes.forEach {
-//            Log.d("AAA", it.name)
-//        }
-//        Log.d("BBB", availableDishes.toString())
 }

@@ -52,17 +52,6 @@ class CustomAdapter(private val dataSet: Array<IngredientEnum>) :
             }
             isChosen = isChosen.not()
         }
-        /*viewHolder.checkBox.text = dataSet[position].name
-            viewHolder.checkBox.setOnClickListener {
-                var isChecked = viewHolder.checkBox.isChecked
-                Log.d("BBB", isChecked.toString())
-                if (isChecked) {
-                    Data.checked.add(dataSet[position])
-                } else {
-                    Data.checked.remove(dataSet[position])
-                }
-                isChecked = viewHolder.checkBox.isChecked.not()
-            }*/
     }
 
     override fun getItemCount() = dataSet.size

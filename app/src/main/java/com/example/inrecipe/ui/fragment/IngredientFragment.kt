@@ -26,20 +26,6 @@ class IngredientFragment : Fragment() {
         val layoutManager = GridLayoutManager(requireContext(), 2)
         recylerView.layoutManager = layoutManager
 
-        /*button.setOnClickListener {
-            if (Data.checked.isNotEmpty()) {
-                findNavController().navigate(R.id.action_ingredientFragment_to_mainFragment)
-            } else {
-                val builder = AlertDialog.Builder(requireContext(), R.style.AlertDialogStyle)
-                builder.setTitle("Выберите хотя бы 1 ингредиент.")
-                builder.setPositiveButton(
-                    "Ok"
-                ) { p0, p1 -> }
-                builder.create()
-                builder.show()
-            }
-        }*/
-
         return view
     }
 

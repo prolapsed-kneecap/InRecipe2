@@ -25,7 +25,7 @@
             android:layout_height="150dp"
             android:layout_gravity="top"
             android:scaleType="fitXY"
-            tools:src="@drawable/apple_pie" />
+            tools:src="@drawable/fruit_salad" />
 
         <TextView
             android:id="@+id/recipeName"
@@ -37,7 +37,7 @@
             android:fontFamily="@font/mont_regular"
             android:gravity="center"
             android:textColor="@color/white"
-            tools:text="Яблочный пирог" />
+            tools:text="Фруктовый салат" />
 
 
     </com.google.android.material.card.MaterialCardView>

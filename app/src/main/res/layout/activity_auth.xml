@@ -14,7 +14,7 @@
         android:layout_above="@id/emailLayout"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="-300dp"
-        android:src="@drawable/piece_of_cake" />
+        android:src="@drawable/piece_of_cake"/>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/emailLayout"
@@ -60,7 +60,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/LoginBtn"
+        android:id="@+id/logInButton"
         android:layout_width="225dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/passwordLayout"
@@ -74,10 +74,10 @@
         app:cornerRadius="10dp"/>
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/signInBtn"
+        android:id="@+id/signInButton"
         android:layout_width="225dp"
         android:layout_height="wrap_content"
-        android:layout_below="@id/LoginBtn"
+        android:layout_below="@id/logInButton"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
         android:textAllCaps="false"
@@ -85,7 +85,7 @@
         android:backgroundTint="#b2a4a4"
         android:fontFamily="@font/mont_bold"
         android:text="Зарегистрироваться"
-        android:textSize="12dp" />
+        android:textSize="13dp" />
 
 
 </RelativeLayout>

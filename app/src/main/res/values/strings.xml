@@ -1,6 +1,54 @@
 <resources>
     <string name="app_name">InRecipe</string>
-    <string name="recipe">
-        1. Recipe sdfjskfjksdl ffjksdklfjsd sdkdfjsdklfjdkf sjkfjsdkfjsdkfj \n2.dsjkRecipe sdfjkdsfj sdfjksdlfk jsdklf jsdkfjdskfjsk fjsdsfsd \nRecipe \nRecipe \nRecipe \nRecipe \nRecipe \nRecipe \nRecipe \nRecipe \nRecipe \nRecipe \nRecipe \nRecipe \nRecipe \nRecipe \nRecipe \nRecipe \nRecipe \nRecipe \nRecipe \nRecipe \nRecipe \n\nRecipe \n\nRecipe \n\nRecipe \n\nRecipe \n\nRecipe \n\nRecipe \n\nRecipe \n\nRecipe \n\nRecipe \n\nRecipe \n\nRecipe \n\nRecipe \n\nRecipe \n\nRecipe \n\nRecipe \n\nRecipe \n\nRecipe \n\nRecipe \n\nRecipe \n\nRecipe \n\nRecipe \n\nRecipe \n\nRecipe \n\nRecipe \n\nRecipe \n\nRecipe \n\nRecipe \n\nRecipe \n\nRecipe \n\nRecipe \n\nRecipe \n\nRecipe \n\nRecipe \n\nRecipe \n\nRecipe \n\nRecipe \n\nRecipe \n\nRecipe \n\nRecipe \n\nRecipe \n\nRecipe \n\nRecipe \n\nRecipe \n\nRecipe \n\nRecipe \n\nRecipe \n\nRecipe \n\nRecipe \n\nRecipe \n\nRecipe \n\nRecipe \n\nRecipe \n\nRecipe \n\nRecipe \n\nRecipe \n\nRecipe \n\nRecipe \n\nRecipe \n\nRecipe \n\nRecipe \n\nRecipe \n\nRecipe \n\nRecipe \n\nRecipe \n\nRecipe \n\nRecipe \n\nRecipe \n\nRecipe \n\nRecipe \n\nRecipe \n\nRecipe \n\nRecipe \n\nRecipe \n\nRecipe \n\nRecipe \n\nRecipe \n\nRecipe \n\nRecipe \n
+    <string name="recipe_fruit_salad">
+        Нарезать и перемешать
+    </string>
+    <string name="recipe_salad">
+        Нарезать и перемешать
+    </string>
+    <string name="recipe_omelette">
+        Разбить яйца. Вылить содержимое на сковородку. Ждать. И готово!
+    </string>
+    <string name="recipe_apple_pie">
+        К яйцу добавить сахар (70 г), ванильный сахар и соль. Взбить до посветления.
+Добавить молоко, половину растопленного
+сливочного масла (20 г) и цедру лимона.
+Цедру лимона можно не добавлять, если её нет. Но если у вас есть лимон в холодильнике, то не забудьте добавить этот ингредиент - пирог приобретает просто волшебный аромат.
+
+Муку смешать с разрыхлителем, добавить в яично-молочную смесь. Перемешать тесто до однородности.
+
+Яблоки очистить от кожицы (по желанию) и сердцевинок. Нарезать яблоки тонкими дольками.
+
+Вылить тесто в разъемную форму для выпечки (у меня форма диаметром 21 см), выстеленную пергаментом.
+
+В тесто утопить дольки яблок вертикально.
+
+Чем больше яблок уйдет в пирог, тем вкуснее он получится.
+
+Сверху посыпать сахаром (1-2 ст. ложки) и полить оставшимся растопленным маслом (10-20 г).
+
+Выпекать яблочный пирог в духовке, заранее прогретой до 180 градусов, 30-40 минут. Готовность пирога проверить деревянной шпажкой, она должна выходить без остатков сырого теста.
+Прежде чем доставать пирог из формы, дать ему остыть приблизительно 15 минут.
+    </string>
+    <string name="recipe_chicken_soup">
+        Куриное мясо разрезать на куски и обжарить на топленом масле до золотистого цвета.
+Когда мясо подрумянится, переложить его в кипящую воду, масло оставить на сковороде.
+Бульон посолить по вкусу.
+Половину масла отлить в пиалу и добавить к нему измельченный чеснок.
+Лук и морковь мелко нарезать и обжарить на сковороде с оставшимся маслом,
+затем выложить в кастрюлю к бульону.
+Из яиц, щепотки соли и муки замесить тугое тесто, как на лапшу.
+Из полученного теста раскатать две тонкие лепешки толщиной примерно 1 мм, смазать маслом с чесноком, посыпать черным перцем и скрутить рулетики, защипав край, чтобы в процессе варки рулетики не раскрутились.
+Получившиеся рулетики разрезать на кусочки длиной 3 см.
+Когда курица в бульоне будет готова, опустить рулетики в бульон и варить еще минут пять.
+    </string>
+    <string name="recipe_tart">
+        Размягченное сливочное масло взбить с сахаром.
+Добавить яйца и молоко комнатной температуры, взбить.
+В муку добавить соль, корицу и разрыхлитель и просеять в миску к яично-масляной смеси. Перемешать лопаткой.
+Форму смазать маслом и выложить тесто.
+Разровнять поверхность и сверху уложить клубнику, разрезанную наполовину, срезом вниз. Выпекать в духовке, разогретой до 180 градусов, до сухой лучины. Не пересушите тесто!
+Пока выпекается пирог, взбейте охлажденные жирные сливки, они понадобятся для подачи.
+Теплый пирог посыпать сахарной пудрой и подавать со взбитыми сливками.
     </string>
 </resources>

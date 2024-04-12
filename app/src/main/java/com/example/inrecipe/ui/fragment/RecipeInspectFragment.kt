@@ -31,7 +31,7 @@ class RecipeInspectFragment : Fragment() {
                 ings += "${ing.ingredientName} "
             }
             view.findViewById<TextView>(R.id.dishDescription).text = ings
-            view.findViewById<TextView>(R.id.recipeText).text = Data.recipes[index]
+            view.findViewById<TextView>(R.id.recipeText).text = getString(dish.recipe)
         }
 
         return view

@@ -1,13 +1,17 @@
 package com.example.inrecipe.ui.fragment
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.inrecipe.R
+import com.example.inrecipe.data.Data
+import com.example.inrecipe.ui.activity.MainActivity
 
 
 class DishFragment : Fragment() {
@@ -18,15 +22,15 @@ class DishFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_dish, container, false)
         val arguments = arguments
-        if (arguments != null) {
-            val catName = arguments.getString(CAT_NAMES)
-            val catDescription = arguments.getString(CAT_DESCRIPTIONS)
-            val topCardResourceId = arguments.getInt(TOP_IMAGE)
-            val recipe = arguments.getString("recipe")
+        if (arguments != null && Data.availableDishes.isNotEmpty()) {
+            var position = arguments.getInt("position")
+            if (position >= Data.availableDishes.size)
+                position = 0
+            val description = arguments.getString("description")
+            val recipe = getString(arguments.getInt("recipe"))
+            val dish = Data.availableDishes[position]
 
-            displayValues(view, catName, catDescription, topCardResourceId, recipe.toString())
-        } else {
-            displayValues(view, "AAA", "catDescription", 0, "a")
+            displayValues(view, dish.name, description, dish.image, recipe)
         }
         return view
     }
@@ -36,20 +40,13 @@ class DishFragment : Fragment() {
         catDescription: String?, topCardResourceId: Int,
         recipe:String
     ) {
-        val catNameTextView = v.findViewById<TextView>(R.id.catTitle)
-        val catDescriptionTextView = v.findViewById<TextView>(R.id.catDescription)
-        val cardImageView = v.findViewById<ImageView>(R.id.topImage)
-        val recipeTextView = v.findViewById<TextView>(R.id.recipeTextView)
+        val dishNameTextView = v.findViewById<TextView>(R.id.dish_title)
+        val dishDescriptionTextView = v.findViewById<TextView>(R.id.dish_ingredients)
+        val cardImageView = v.findViewById<ImageView>(R.id.dish_image)
+        val recipeTextView = v.findViewById<TextView>(R.id.dish_recipe)
         recipeTextView.text = recipe
-        catNameTextView.text = name
-        catDescriptionTextView.text = catDescription
+        dishNameTextView.text = name
+        dishDescriptionTextView.text = catDescription
         cardImageView.setImageResource(topCardResourceId)
     }
-
-    companion object {
-        const val CAT_NAMES = "cats_names"
-        const val CAT_DESCRIPTIONS = "cat_descriptions"
-        const val TOP_IMAGE = "top image"
-    }
-
 }

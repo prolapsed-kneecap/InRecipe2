@@ -7,5 +7,6 @@ data class Dish(
     val name : String,
     val ingredients : Set<IngredientEnum>,
     var image : Int,
+    val recipe : Int = R.string.recipe_omelette,
     var rating : Int = 0
 )

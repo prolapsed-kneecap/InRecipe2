@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import com.example.inrecipe.R
+import com.example.inrecipe.data.Data
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
@@ -16,22 +17,19 @@ class AuthActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_auth)
-
         supportActionBar?.title = "Авторизация"
-
         supportActionBar?.setBackgroundDrawable(resources.getDrawable(R.color.orange))
 
         val emailEditText = findViewById<TextInputEditText>(R.id.emailEditText)
         val passwordEditText = findViewById<TextInputEditText>(R.id.passwordEditText)
-        val loginButton = findViewById<MaterialButton>(R.id.LoginBtn)
-        val signInButton = findViewById<MaterialButton>(R.id.signInBtn)
+        val loginButton = findViewById<MaterialButton>(R.id.logInButton)
+        val signInButton = findViewById<MaterialButton>(R.id.signInButton)
 
         val mAuth = FirebaseAuth.getInstance()
 
-//        mAuth.signOut()
-
         if (mAuth.currentUser != null) {
             val intent = Intent(this, MainActivity::class.java)
+            Data.uid = mAuth.currentUser!!.uid
             startActivity(intent)
             finish()
         }
@@ -48,6 +46,7 @@ class AuthActivity : AppCompatActivity() {
                         .addOnCompleteListener(this) { task ->
                             if (task.isSuccessful) {
                                 Log.d(TAG, "signInWithEmail:success")
+                                Data.uid = mAuth.currentUser!!.uid
                                 val intent = Intent(this, MainActivity::class.java)
                                 startActivity(intent)
                                 finish()
@@ -65,7 +64,7 @@ class AuthActivity : AppCompatActivity() {
             }
         }
         signInButton.setOnClickListener {
-            val intent = Intent(this, SignInActivity::class.java)
+            val intent = Intent(this, SignUpActivity::class.java)
             startActivity(intent)
         }
     }

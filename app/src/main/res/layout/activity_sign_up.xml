@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/gradient"
-    tools:context=".ui.activity.SignInActivity">
+    tools:context=".ui.activity.SignUpActivity">
 
     <ImageView
         android:layout_width="250dp"
@@ -62,7 +62,7 @@
 
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/LoginBtn_register"
+        android:id="@+id/registerButton"
         android:layout_width="225dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/passwordRegLayout"
@@ -72,6 +72,7 @@
         android:textAllCaps="false"
         android:fontFamily="@font/mont_bold"
         android:text="Зарегистрироваться"
+        android:textColor="@color/white"
         android:textSize="13dp" />
 
 </RelativeLayout>

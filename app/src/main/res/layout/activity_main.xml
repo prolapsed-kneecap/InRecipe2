@@ -6,30 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".ui.activity.MainActivity"
     android:background="@drawable/gradient">
-<!--
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="@color/orange"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
-        <ImageView
-            android:id="@+id/saved"
-            android:layout_width="30dp"
-            android:layout_marginEnd="10dp"
-            android:layout_height="30dp"
-            android:src="@drawable/ic_baseline_bookmark_24"
-            android:layout_gravity="end"/>
-        <ImageView
-            android:id="@+id/addRecipe"
-            android:layout_width="30dp"
-            android:layout_marginEnd="10dp"
-            android:layout_height="30dp"
-            android:src="@drawable/ic_baseline_add_24"
-            android:layout_gravity="end"/>
-    </androidx.appcompat.widget.Toolbar>-->
+
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/nav_host_fragment"
@@ -42,26 +19,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:defaultNavHost="true"
         app:navGraph="@navigation/nav_graph" />
-
-
-    <!--<androidx.viewpager.widget.ViewPager
-        android:id="@+id/viewpager"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        style="@style/stylePagerTitleStrip">
-
-        <androidx.viewpager.widget.PagerTitleStrip
-            android:id="@+id/pager_title_strip"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="top"
-            android:background="@color/orange"
-            android:paddingTop="4dp"
-            style="@style/stylePagerTitleStrip"
-            android:paddingBottom="4dp"
-            android:textColor="@color/white" />
-
-    </androidx.viewpager.widget.ViewPager>-->
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bnv"
